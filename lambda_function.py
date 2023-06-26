@@ -38,7 +38,7 @@ def lambda_handler(event, context=''):
 
     ## DEFINE VARIABLES
     #get feature library id
-    lib_list = benchling.feature_libraries.list(name_includes = 'Regex Testing')
+    lib_list = benchling.feature_libraries.list(name_includes = 'Regex')
     for page in lib_list:
         for lib in page:
             feature_lib_id = lib.id
@@ -55,7 +55,7 @@ def lambda_handler(event, context=''):
     for page in get_RVP_folder:
         for folder in page:
             RVP_folder = folder.id
-    RVP_schema_id = "ts_MbpzsDrw"
+    RVP_schema_id = os.environ.get('RVP_SCHEMA_ID')
 
    
 
